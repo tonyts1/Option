@@ -1,14 +1,12 @@
 #下載資料套件
 import urllib3
 from bs4 import BeautifulSoup
-
 #資料處理套件
 import pandas as pd
 from datetime import datetime, date
-
 #畫圖套件
 import matplotlib.pyplot as plt
-#%matplotlib inline -- IPython中的魔法函數(Magic Function)
+# %matplotlib inline -- IPython中的魔法函數(Magic Function)(Mac用)
 
 print("查詢日期區間")
 queryStartDate = input()
@@ -28,11 +26,12 @@ res = http.request(
 html_doc = res.data
 #print(html_doc)
 
+#資料處理
 soup = BeautifulSoup(html_doc, 'html.parser')
 table = soup.table
 df = pd.read_html(str(table))
 pc_ratio = df[3]
-#print(pc_ratio)
+print(pc_ratio)
 
 # Part 2 : 將下載的個股資料另存成csv檔
 pc_ratio.to_csv("pc_ratio.csv", encoding='big5')
