@@ -55,4 +55,3 @@ plt.legend(['Put/Call Volume Ratio%', 'Put/Call OI Ratio%'])
 print(pc_ratio)
 plt.show()
 
-print('1211')
